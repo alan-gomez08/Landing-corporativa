@@ -4,14 +4,15 @@ import type { ClientData } from '../types/index';
 export const configT3: ClientData | any = {
   templateId: 'template-3',
   businessName: 'Tu Logo',
-  theme: { primaryColor: '#C5A059', secondaryColor: '#0B192C' },
+  theme: { primaryColor: '#0B192C', secondaryColor: '#E2E8F0' },
   
   // NAV CONFIG (Para el navbar)
   nav: {
     links: [
       { name: 'Especialidades', href: '#servicios' },
-      { name: 'Mi Perfil', href: '#equipo' },
-      { name: 'Contacto', href: '#ubicacion' }
+      { name: 'Sobre Nosotros', href: '#equipo' },
+      { name: 'Contacto', href: '#contacto' },
+      { name: 'Ubicación', href: '#ubicacion' }
     ],
     buttonText: 'Agendar ahora',
   },
@@ -29,9 +30,9 @@ export const configT3: ClientData | any = {
   
   // EQUIPO T3 (Usamos la sección About)
   about: { 
-    title: 'Sobre Mí', 
+    title: 'Sobre Nosotros', 
     subtitle: '', 
-    description: 'En mi despacho, entiendo que cada accidente vial y laboral impacta directamente en el bienestar y la estabilidad de tu familia. Por eso, cuento con más de 15 años de trayectoria en el mercado brindando acompañamiento integral a víctimas, trabajadores y personas damnificadas. Mi enfoque trasciende la simple presentación de escritos o la redacción de telegramas; me posiciono como verdadero aliado estratégico de mis clientes.\n\nTrabajo bajo una estricta filosofía basada en la resolución de conflictos, la atención personalizada y la actualización constante frente a los continuos cambios jurisprudenciales.', 
+    description: 'En nuestro despacho, entendemos que cada accidente vial y laboral impacta directamente en el bienestar y la estabilidad de tu familia. Por eso, contamos con más de 15 años de trayectoria en el mercado brindando acompañamiento integral a víctimas, trabajadores y personas damnificadas. Nuestro enfoque trasciende la simple presentación de escritos o la redacción de telegramas; nos posicionamos como verdaderos aliados estratégicos de nuestros clientes.\n\nTrabajamos bajo una estricta filosofía basada en la resolución de conflictos, la atención personalizada y la actualización constante frente a los continuos cambios jurisprudenciales.', 
     images: { desktop: '/assets-t3/estudio-equipo.webp', tablet: '/assets-t3/estudio-equipo.webp', mobile: '/assets-t3/estudio-equipo.webp' } 
   },
   
@@ -39,10 +40,10 @@ export const configT3: ClientData | any = {
   stats: { 
     title: '', 
     items: [
-      { value: '', label: 'Abogado matriculado y en constante capacitación' },
+      { value: '', label: 'Abogados matriculados y en constante capacitación' },
       { value: '', label: 'Atención personalizada y respuestas ágiles' },
       { value: '', label: 'Transparencia y honestidad de gestión absoluta' },
-      { value: '', label: 'VVisión integral estratégica del reclamo' }
+      { value: '', label: 'Visión integral estratégica del reclamo' }
     ] 
   },
 
@@ -93,8 +94,8 @@ export const configT3: ClientData | any = {
   events: { title: '', description: '', buttonText: '' },
   testimonials: { title: '', items: [] },
   location: { 
-    title: 'Mi Estudio.\nVisitanos', 
-    description: 'Tengo oficinas en el CABA. Vení a tomar un café conmigo y analicemos el estado de tu carpeta cara a cara, con estricta y total confidencialidad.', 
+    title: 'Nuestro Estudio.\nVisitanos', 
+    description: 'Tenemos oficinas en CABA. Vení a tomar un café con nosotros y analicemos el estado de tu carpeta cara a cara, con estricta y total confidencialidad.', 
     buttonText: 'Agendar Reunión Presencial', 
     mapEmbedUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3284.016713276848!2d-58.38375908477038!3d-34.60373888045942!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4aa9f0a6da5edb%3A0x11be2277a064115b!2sObelisco!5e0!3m2!1ses-419!2sar!4v1680000000000!5m2!1ses-419!2sar' 
   },
