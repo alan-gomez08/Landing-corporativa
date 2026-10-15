@@ -1,5 +1,7 @@
+import { useState } from 'react';
 import type { ClientData } from '../types';
 import ScrollReveal from './ScrollReveal';
+import LegalModal, { type LegalTab } from './LegalModal';
 
 interface Props {
   data: ClientData;
@@ -8,6 +10,15 @@ interface Props {
 
 export default function FooterT3({ data, paleta }: Props) {
   const currentYear = new Date().getFullYear();
+  const [activeLegalTab, setActiveLegalTab] = useState<LegalTab | null>(null);
+
+  const openLegalModal = (tab: LegalTab) => {
+    setActiveLegalTab(tab);
+  };
+
+  const closeLegalModal = () => {
+    setActiveLegalTab(null);
+  };
 
   return (
     <footer className="w-full pt-12 lg:pt-16 pb-8 px-6 lg:px-8 border-t" style={{ backgroundColor: paleta.fondoOscuroSecundario, borderColor: `${paleta.textoClaro}10` }}>
@@ -127,18 +138,63 @@ export default function FooterT3({ data, paleta }: Props) {
           </div>
         </ScrollReveal>
 
-        {/* LÍNEA DE SEPARACIÓN Y COPYRIGHT */}
-        <div className="w-full pt-8 border-t flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left" style={{ borderColor: `${paleta.textoClaro}15` }}>
-          <span className="text-[13px] font-normal font-['Inter']" style={{ color: `${paleta.textoClaro}80` }}>
-            © {currentYear} {data.businessName.replace('.', '')}. Todos los derechos reservados.
-          </span>
-          <div className="flex items-center gap-6 text-[12px] font-['Inter']" style={{ color: `${paleta.textoClaro}70` }}>
-            <span className="hover:text-white transition-colors cursor-default">Términos y Condiciones</span>
-            <span className="hover:text-white transition-colors cursor-default">Política de Privacidad</span>
+        {/* LÍNEA DE SEPARACIÓN Y AVISO LEGAL / COPYRIGHT */}
+        <div className="w-full pt-8 border-t flex flex-col items-center justify-center gap-3.5 text-center" style={{ borderColor: `${paleta.textoClaro}15` }}>
+          {/* Fila de Enlaces Legales */}
+          <div className="flex flex-wrap items-center justify-center gap-2.5 text-xs sm:text-sm font-['Inter'] text-[#94A3B8]">
+            <button 
+              type="button"
+              onClick={() => openLegalModal('terminos')} 
+              className="hover:text-white transition-colors cursor-pointer underline-offset-4 hover:underline"
+            >
+              Términos y Condiciones
+            </button>
+            <span className="text-[#64748B] select-none">|</span>
+            <button 
+              type="button"
+              onClick={() => openLegalModal('privacidad')} 
+              className="hover:text-white transition-colors cursor-pointer underline-offset-4 hover:underline"
+            >
+              Política de Privacidad
+            </button>
+            <span className="text-[#64748B] select-none">|</span>
+            <button 
+              type="button"
+              onClick={() => openLegalModal('deslinde')} 
+              className="hover:text-white transition-colors cursor-pointer underline-offset-4 hover:underline"
+            >
+              Deslinde de Responsabilidad
+            </button>
           </div>
+
+          {/* Copyright */}
+          <div className="flex flex-wrap items-center justify-center gap-x-2 gap-y-1 text-xs sm:text-sm font-['Inter'] text-[#94A3B8]">
+            <span>© 2026 AG Web Design. Todos los derechos reservados.</span>
+            {data.businessName && (
+              <>
+                <span className="text-[#64748B] select-none">·</span>
+                <span className="text-[#64748B]">
+                  © {currentYear} {data.businessName.replace('.', '')}
+                </span>
+              </>
+            )}
+          </div>
+
+          {/* Texto de descargo de marcas */}
+          <p className="max-w-[850px] text-xs sm:text-sm leading-relaxed font-['Inter'] text-[#64748B]">
+            Servicios de diseño y desarrollo web independiente. Las marcas comerciales, logotipos y nombres de terceros (como Mercado Libre, WhatsApp, Google o Meta) pertenecen a sus respectivos titulares y se mencionan exclusivamente con fines descriptivos de compatibilidad técnica.
+          </p>
         </div>
 
       </div>
+
+      {/* Modal emergente para Términos, Privacidad y Deslinde */}
+      <LegalModal 
+        isOpen={activeLegalTab !== null}
+        onClose={closeLegalModal}
+        initialTab={activeLegalTab || 'terminos'}
+        paleta={paleta}
+      />
     </footer>
   );
 }

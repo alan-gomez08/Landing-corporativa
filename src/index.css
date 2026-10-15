@@ -13,6 +13,17 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Espaciado para que la navbar fija no tape los títulos de las secciones al navegar */
+section[id] {
+  scroll-margin-top: 75px;
+}
+
+@media (min-width: 1024px) {
+  section[id] {
+    scroll-margin-top: 85px;
+  }
+}
+
 body {
   font-family: 'Inter', sans-serif;
   background-color: #000000;
