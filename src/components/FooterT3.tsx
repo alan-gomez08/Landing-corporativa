@@ -182,7 +182,7 @@ export default function FooterT3({ data, paleta }: Props) {
 
           {/* Texto de descargo de marcas */}
           <p className="max-w-[850px] text-xs sm:text-sm leading-relaxed font-['Inter'] text-[#64748B]">
-            Servicios de diseño y desarrollo web independiente. Las marcas comerciales, logotipos y nombres de terceros (como Mercado Libre, WhatsApp, Google o Meta) pertenecen a sus respectivos titulares y se mencionan exclusivamente con fines descriptivos de compatibilidad técnica.
+            Servicios de diseño y desarrollo web independientes. Las marcas comerciales, logotipos y nombres de terceros (como Mercado Libre, WhatsApp, Google o Meta) pertenecen a sus respectivos titulares y se mencionan exclusivamente con fines descriptivos de compatibilidad técnica.
           </p>
         </div>
 

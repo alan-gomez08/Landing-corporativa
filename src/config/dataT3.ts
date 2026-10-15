@@ -49,12 +49,12 @@ export const configT3: ClientData | any = {
 
   // SERVICIOS T3 (Usamos la sección Menu)
   menu: { 
-    title: 'Mis Especialidades', 
+    title: 'Nuestras Especialidades', 
     // Usamos el primer elemento de categories para pasar el subtítulo de la sección
     categories: ['Soluciones integrales para la tranquilidad económica y legal de tu familia.'], 
     items: [
       { id: '1', title: 'Accidentes Viales', description: 'Gestión de siniestros, peritajes y reclamos a aseguradoras para obtener tu máxima compensación.', price: '', category: '', imagePath: '/assets-t3/icon-contable.svg' },
-      { id: '2', title: 'Reclamos Contra ART', description: 'GGestión de altas, comisiones médicas y asesoramiento legal continuo para tu salud.', price: '', category: '', imagePath: '/assets-t3/icon-sueldos.svg' },
+      { id: '2', title: 'Reclamos contra ART', description: 'Gestión de altas, comisiones médicas y asesoramiento legal continuo para tu salud.', price: '', category: '', imagePath: '/assets-t3/icon-sueldos.svg' },
       { id: '3', title: 'Despidos Laborales', description: 'Liquidación de indemnizaciones, redacción de telegramas y defensa laboral.', price: '', category: '', imagePath: '/assets-t3/icon-legal.svg' },
       { id: '4', title: 'Incapacidades', description: 'Juntas, reevaluaciones y control mensual de expedientes para trabajadores damnificados.', price: '', category: '', imagePath: '/assets-t3/icon-monotributo.svg' },
       { id: '5', title: 'Enfermedad Laboral', description: 'Análisis de historiales y estrategias legales para reconocer la carga física de tu trabajo.', price: '', category: '', imagePath: '/assets-t3/icon-fiscal.svg' },
@@ -65,7 +65,7 @@ export const configT3: ClientData | any = {
   // === SECCIÓN: FAQ (Preguntas Frecuentes) ===
   faqs: [
     {
-      question: '¿Ya tengo abogado, es muy complicado cambiar de estudio?',
+      question: 'Si ya tengo abogado, ¿es muy complicado cambiar de estudio?',
       answer: 'Es un trámite rápido, sencillo y un derecho que tenés como cliente. Solo necesitás firmar una revocación de poder. Nosotros nos encargamos de notificar formalmente al abogado anterior y de solicitar el estado de tu expediente para continuar tu reclamo sin demoras.'
     },
     {
@@ -85,7 +85,7 @@ export const configT3: ClientData | any = {
   // === SECCIÓN: CALL TO ACTION (CTA) ===
   cta: {
     title: 'Delegá tus problemas legales y médicos hoy',
-    description: 'Dejá tus pericias y tus reclamos en manos de expertos. Contactame hoy para una asesoría inicial sin cargo.',
+    description: 'Dejá tus pericias y tus reclamos en manos de expertos. Contactanos hoy para una asesoría inicial sin cargo.',
     buttonText: 'Agendar una consulta',
     buttonType: 'whatsapp',
     buttonUrl: '' 

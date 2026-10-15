@@ -28,7 +28,7 @@ export default function HeroT3({ data, paleta }: Props) {
         <source media="(min-width: 768px)" srcSet={data.hero.images.tablet} />
         <img 
           src={data.hero.images.mobile} 
-          alt="Corporative Background" 
+          alt="Fondo corporativo del estudio jurídico" 
           className="w-full h-full object-cover object-center"
         />
       </picture>

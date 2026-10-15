@@ -30,7 +30,7 @@ export default function FaqT3({ data, paleta }: Props) {
               Preguntas Frecuentes
             </h2>
             <p className="text-[16px] md:text-[18px] font-normal font-['Inter']" style={{ color: paleta.textoGris }}>
-              Resolvemos tus dudas principales antes de comenzar a litigar juntos.
+              Resolvemos tus dudas principales antes de iniciar tu reclamo con nosotros.
             </p>
           </div>
         </ScrollReveal>

@@ -210,7 +210,7 @@ export default function LegalModal({
                   4. Responsabilidad sobre Contenidos Publicados
                 </h4>
                 <p>
-                  Cada cliente o titular de la implementación final es el exclusivo responsable de los textos, logotipos, imágenes, productos y afirmaciones legales incorporadas en su respectivo sitio web, garantizando contar con las debidas autorizaciones de uso y cumpliendo la normativa vigente de su jurisdicción.
+                  Cada cliente o titular de la implementación final es el exclusivo responsable de los textos, logotipos, imágenes, productos y afirmaciones legales incorporados en su respectivo sitio web, garantizando contar con las debidas autorizaciones de uso y cumpliendo la normativa vigente de su jurisdicción.
                 </p>
               </div>
 
@@ -313,7 +313,7 @@ export default function LegalModal({
                   © 2026 AG Web Design. Todos los derechos reservados.
                 </p>
                 <p className="text-xs text-[#94A3B8] mt-2 leading-relaxed">
-                  Servicios de diseño y desarrollo web independiente. Las marcas comerciales, logotipos y nombres de terceros (como Mercado Libre, WhatsApp, Google o Meta) pertenecen a sus respectivos titulares y se mencionan exclusivamente con fines descriptivos de compatibilidad técnica.
+                  Servicios de diseño y desarrollo web independientes. Las marcas comerciales, logotipos y nombres de terceros (como Mercado Libre, WhatsApp, Google o Meta) pertenecen a sus respectivos titulares y se mencionan exclusivamente con fines descriptivos de compatibilidad técnica.
                 </p>
               </div>
 
@@ -322,7 +322,7 @@ export default function LegalModal({
                   1. Titularidad de Marcas de Terceros
                 </h4>
                 <p>
-                  Todas las marcas registradas, logotipos, imagotipos, nombres comerciales y marcas de servicio de terceros exhibidas o mencionadas en este portal o en los templates (incluyendo, entre otros: WhatsApp, Google, Google Maps, Meta, Facebook, Instagram, Mercado Libre) son propiedad exclusiva de sus respectivos titulares.
+                  Todas las marcas registradas, logotipos, imagotipos, nombres comerciales y marcas de servicio de terceros exhibidas o mencionadas en este portal o en las plantillas (incluyendo, entre otros: WhatsApp, Google, Google Maps, Meta, Facebook, Instagram, Mercado Libre) son propiedad exclusiva de sus respectivos titulares.
                 </p>
               </div>
 
