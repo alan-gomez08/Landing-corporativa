@@ -23,13 +23,6 @@ export default function LegalModal({
 }: LegalModalProps) {
   const [activeTab, setActiveTab] = useState<LegalTab>(initialTab);
 
-  // Sincronizar el tab activo cuando cambia initialTab o se abre el modal
-  useEffect(() => {
-    if (isOpen && initialTab) {
-      setActiveTab(initialTab);
-    }
-  }, [isOpen, initialTab]);
-
   // Manejar tecla Escape y bloqueo de scroll
   useEffect(() => {
     if (!isOpen) return;
@@ -173,7 +166,7 @@ export default function LegalModal({
                 <h3 className="text-xl font-bold text-white font-['Lexend_Deca']">
                   Términos y Condiciones de Uso
                 </h3>
-                <p className="text-xs text-[#64748B] mt-1">
+                <p className="text-xs text-[#94A3B8] mt-1">
                   Vigencia: 2026 · AG Web Design
                 </p>
               </div>
@@ -234,7 +227,7 @@ export default function LegalModal({
                 <h3 className="text-xl font-bold text-white font-['Lexend_Deca']">
                   Política de Privacidad
                 </h3>
-                <p className="text-xs text-[#64748B] mt-1">
+                <p className="text-xs text-[#94A3B8] mt-1">
                   Transparencia y resguardo de su información · 2026
                 </p>
               </div>
@@ -297,7 +290,7 @@ export default function LegalModal({
                 <h3 className="text-xl font-bold text-white font-['Lexend_Deca']">
                   Deslinde de Responsabilidad y Descargo de Marcas
                 </h3>
-                <p className="text-xs text-[#64748B] mt-1">
+                <p className="text-xs text-[#94A3B8] mt-1">
                   Uso descriptivo de marcas y compatibilidad técnica · 2026
                 </p>
               </div>
@@ -352,7 +345,7 @@ export default function LegalModal({
           className="flex flex-col sm:flex-row items-center justify-between gap-3 px-6 py-4 border-t shrink-0"
           style={{ borderColor: `${paleta.textoClaro}15`, backgroundColor: `${paleta.fondoOscuro}40` }}
         >
-          <span className="text-xs text-[#64748B]">
+          <span className="text-xs text-[#94A3B8]">
             Presione <kbd className="px-1.5 py-0.5 rounded bg-white/10 text-white font-mono text-[10px]">Esc</kbd> o haga clic fuera para cerrar
           </span>
           <button

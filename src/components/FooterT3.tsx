@@ -1,7 +1,9 @@
-import { useState } from 'react';
+import { useState, lazy, Suspense } from 'react';
 import type { ClientData } from '../types';
 import ScrollReveal from './ScrollReveal';
-import LegalModal, { type LegalTab } from './LegalModal';
+import type { LegalTab } from './LegalModal';
+
+const LegalModal = lazy(() => import('./LegalModal'));
 
 interface Props {
   data: ClientData;
@@ -46,6 +48,7 @@ export default function FooterT3({ data, paleta }: Props) {
                   target="_blank" 
                   rel="noopener noreferrer" 
                   title="WhatsApp"
+                  aria-label="Contactar por WhatsApp"
                   className="w-9 h-9 rounded-[8px] flex justify-center items-center transition-colors" 
                   style={{ backgroundColor: `${paleta.textoClaro}15`, color: paleta.textoClaro }} 
                   onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = '#FFFFFF'; e.currentTarget.style.color = paleta.fondoOscuro; }} 
@@ -58,6 +61,7 @@ export default function FooterT3({ data, paleta }: Props) {
                   target="_blank" 
                   rel="noopener noreferrer" 
                   title="Instagram"
+                  aria-label="Perfil de Instagram"
                   className="w-9 h-9 rounded-[8px] flex justify-center items-center transition-colors" 
                   style={{ backgroundColor: `${paleta.textoClaro}15`, color: paleta.textoClaro }} 
                   onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = '#FFFFFF'; e.currentTarget.style.color = paleta.fondoOscuro; }} 
@@ -70,6 +74,7 @@ export default function FooterT3({ data, paleta }: Props) {
                   target="_blank" 
                   rel="noopener noreferrer" 
                   title="Facebook"
+                  aria-label="Página de Facebook"
                   className="w-9 h-9 rounded-[8px] flex justify-center items-center transition-colors" 
                   style={{ backgroundColor: `${paleta.textoClaro}15`, color: paleta.textoClaro }} 
                   onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = '#FFFFFF'; e.currentTarget.style.color = paleta.fondoOscuro; }} 
@@ -149,7 +154,7 @@ export default function FooterT3({ data, paleta }: Props) {
             >
               Términos y Condiciones
             </button>
-            <span className="text-[#64748B] select-none">|</span>
+            <span className="text-[#94A3B8] select-none" aria-hidden="true">|</span>
             <button 
               type="button"
               onClick={() => openLegalModal('privacidad')} 
@@ -157,7 +162,7 @@ export default function FooterT3({ data, paleta }: Props) {
             >
               Política de Privacidad
             </button>
-            <span className="text-[#64748B] select-none">|</span>
+            <span className="text-[#94A3B8] select-none" aria-hidden="true">|</span>
             <button 
               type="button"
               onClick={() => openLegalModal('deslinde')} 
@@ -172,8 +177,8 @@ export default function FooterT3({ data, paleta }: Props) {
             <span>© 2026 AG Web Design. Todos los derechos reservados.</span>
             {data.businessName && (
               <>
-                <span className="text-[#64748B] select-none">·</span>
-                <span className="text-[#64748B]">
+                <span className="text-[#94A3B8] select-none" aria-hidden="true">·</span>
+                <span className="text-[#94A3B8]">
                   © {currentYear} {data.businessName.replace('.', '')}
                 </span>
               </>
@@ -181,20 +186,25 @@ export default function FooterT3({ data, paleta }: Props) {
           </div>
 
           {/* Texto de descargo de marcas */}
-          <p className="max-w-[850px] text-xs sm:text-sm leading-relaxed font-['Inter'] text-[#64748B]">
+          <p className="max-w-[850px] text-xs sm:text-sm leading-relaxed font-['Inter'] text-[#94A3B8]">
             Servicios de diseño y desarrollo web independientes. Las marcas comerciales, logotipos y nombres de terceros (como Mercado Libre, WhatsApp, Google o Meta) pertenecen a sus respectivos titulares y se mencionan exclusivamente con fines descriptivos de compatibilidad técnica.
           </p>
         </div>
 
       </div>
 
-      {/* Modal emergente para Términos, Privacidad y Deslinde */}
-      <LegalModal 
-        isOpen={activeLegalTab !== null}
-        onClose={closeLegalModal}
-        initialTab={activeLegalTab || 'terminos'}
-        paleta={paleta}
-      />
+      {/* Modal emergente diferido para Términos, Privacidad y Deslinde */}
+      {activeLegalTab && (
+        <Suspense fallback={null}>
+          <LegalModal 
+            key={activeLegalTab}
+            isOpen={activeLegalTab !== null}
+            onClose={closeLegalModal}
+            initialTab={activeLegalTab || 'terminos'}
+            paleta={paleta}
+          />
+        </Suspense>
+      )}
     </footer>
   );
 }

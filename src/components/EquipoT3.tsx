@@ -59,6 +59,10 @@ export default function EquipoT3({ data, paleta }: Props) {
                 <img 
                   src={data.about.images.desktop} 
                   alt={data.about.title} 
+                  width="800"
+                  height="1200"
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-auto lg:h-[640px] object-cover hover:scale-105 transition-transform duration-700"
                 />
               </div>

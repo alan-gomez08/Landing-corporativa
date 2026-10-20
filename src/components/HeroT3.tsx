@@ -24,11 +24,16 @@ export default function HeroT3({ data, paleta }: Props) {
     <section id="inicio" className="relative w-full h-[100svh] min-h-[750px] flex flex-col justify-end lg:justify-center overflow-hidden pb-12 lg:pb-0" style={{ backgroundColor: paleta.fondoOscuro }}>
       
       <picture className="absolute inset-0 w-full h-full">
-        <source media="(min-width: 1024px)" srcSet={data.hero.images.desktop} />
-        <source media="(min-width: 768px)" srcSet={data.hero.images.tablet} />
+        <source media="(min-width: 1024px)" srcSet={data.hero.images.desktop} width="1921" height="1279" />
+        <source media="(min-width: 768px)" srcSet={data.hero.images.tablet} width="801" height="1200" />
         <img 
           src={data.hero.images.mobile} 
           alt="Fondo corporativo del estudio jurídico" 
+          width="440"
+          height="956"
+          fetchPriority="high"
+          loading="eager"
+          decoding="async"
           className="w-full h-full object-cover object-center"
         />
       </picture>

@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useMemo } from 'react';
 import type { ClientData } from '../types';
 
 interface Props {
@@ -28,17 +28,19 @@ export default function NavbarT3({ data, paleta }: Props) {
   });
   const [hasInitialized, setHasInitialized] = useState(false);
 
-  const navLinks = data.nav?.links || [
+  const navLinks = useMemo(() => data.nav?.links || [
     { name: 'Especialidades', href: '#servicios' },
     { name: 'Sobre Nosotros', href: '#equipo' },
     { name: 'Contacto', href: '#contacto' },
     { name: 'Ubicación', href: '#ubicacion' }
-  ];
+  ], [data.nav?.links]);
 
   const navButtonText = data.nav?.buttonText || data.hero.buttonText;
 
-  // LÓGICA DE SCROLLSPY: Detección precisa de la sección activa
+  // LÓGICA DE SCROLLSPY: Detección precisa de la sección activa sin forzar reflujos
   useEffect(() => {
+    let ticking = false;
+
     const handleScroll = () => {
       const scrollY = window.scrollY;
       setScrolled(scrollY > 80);
@@ -84,6 +86,16 @@ export default function NavbarT3({ data, paleta }: Props) {
       }
     };
 
+    const onScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          handleScroll();
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+
     // Si el usuario interrumpe el scroll con la rueda o el dedo, cancelamos el bloqueo de click
     const cancelClickScroll = () => {
       if (isClickScrolling.current) {
@@ -93,14 +105,14 @@ export default function NavbarT3({ data, paleta }: Props) {
     };
 
     handleScroll();
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    window.addEventListener('resize', handleScroll, { passive: true });
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll, { passive: true });
     window.addEventListener('wheel', cancelClickScroll, { passive: true });
     window.addEventListener('touchmove', cancelClickScroll, { passive: true });
 
     return () => {
-      window.removeEventListener('scroll', handleScroll);
-      window.removeEventListener('resize', handleScroll);
+      window.removeEventListener('scroll', onScroll);
+      window.removeEventListener('resize', onScroll);
       window.removeEventListener('wheel', cancelClickScroll);
       window.removeEventListener('touchmove', cancelClickScroll);
       if (scrollTimeoutRef.current) clearTimeout(scrollTimeoutRef.current);
@@ -109,34 +121,32 @@ export default function NavbarT3({ data, paleta }: Props) {
 
   // EFECTO DE LÍNEA DESLIZANTE: Calcula y anima la posición hacia un lado o el otro
   useEffect(() => {
+    let rafId: number;
+
     const updateIndicator = () => {
-      if (!navContainerRef.current) return;
+      rafId = window.requestAnimationFrame(() => {
+        if (!navContainerRef.current) return;
 
-      if (!activeSection) {
-        setIndicatorStyle(prev => ({ ...prev, opacity: 0 }));
-        return;
-      }
+        if (!activeSection) {
+          setIndicatorStyle(prev => ({ ...prev, opacity: 0 }));
+          return;
+        }
 
-      const activeLink = navContainerRef.current.querySelector<HTMLAnchorElement>(
-        `a[data-href="${activeSection}"]`
-      );
+        const activeLink = navContainerRef.current.querySelector<HTMLAnchorElement>(
+          `a[data-href="${activeSection}"]`
+        );
 
-      if (activeLink) {
-        const containerRect = navContainerRef.current.getBoundingClientRect();
-        const linkRect = activeLink.getBoundingClientRect();
-
-        const left = linkRect.left - containerRect.left;
-        const width = linkRect.width;
-
-        setIndicatorStyle({
-          left,
-          width,
-          opacity: 1,
-        });
-        setHasInitialized(true);
-      } else {
-        setIndicatorStyle(prev => ({ ...prev, opacity: 0 }));
-      }
+        if (activeLink) {
+          setIndicatorStyle({
+            left: activeLink.offsetLeft,
+            width: activeLink.offsetWidth,
+            opacity: 1,
+          });
+          setHasInitialized(true);
+        } else {
+          setIndicatorStyle(prev => ({ ...prev, opacity: 0 }));
+        }
+      });
     };
 
     updateIndicator();
@@ -147,6 +157,7 @@ export default function NavbarT3({ data, paleta }: Props) {
     }
 
     return () => {
+      window.cancelAnimationFrame(rafId);
       window.removeEventListener('resize', updateIndicator);
     };
   }, [activeSection, navLinks]);
@@ -298,7 +309,8 @@ export default function NavbarT3({ data, paleta }: Props) {
         <button 
           onClick={() => setIsOpen(!isOpen)}
           className="lg:hidden w-10 h-10 flex flex-col justify-center items-center gap-1.5 ml-auto cursor-pointer"
-          aria-label="Abrir menú de navegación"
+          aria-label={isOpen ? 'Cerrar menú de navegación' : 'Abrir menú de navegación'}
+          aria-expanded={isOpen}
         >
           <div className={`w-[24px] h-[2px] rounded-full transition-transform duration-300 ${isOpen ? 'rotate-45 translate-y-[8px]' : ''}`} style={{ backgroundColor: paleta.textoClaro }} />
           <div className={`w-[24px] h-[2px] rounded-full transition-opacity duration-300 ${isOpen ? 'opacity-0' : 'opacity-100'}`} style={{ backgroundColor: paleta.textoClaro }} />

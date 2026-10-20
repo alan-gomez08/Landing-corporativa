@@ -5,7 +5,7 @@ export const configT3: ClientData | any = {
   templateId: 'template-3',
   businessName: 'Tu Logo',
   theme: { primaryColor: '#0B192C', secondaryColor: '#E2E8F0' },
-  
+
   // NAV CONFIG (Para el navbar)
   nav: {
     links: [
@@ -17,41 +17,41 @@ export const configT3: ClientData | any = {
     buttonText: 'Agendar ahora',
   },
 
-  hero: { 
-    title: 'Defendemos tus derechos y maximizamos tu indemnización', 
-    subtitle: 'Asesoramiento legal y representación integral para trabajadores y accidentados. Reclamos estratégicos con respaldo jurídico.', 
-    buttonText: 'Agendar Asesoría Gratis', 
-    images: { 
-      desktop: '/assets-t3/hero-desktop.webp', 
-      tablet: '/assets-t3/hero-tablet.webp', 
-      mobile: '/assets-t3/hero-mobile.webp' 
-    } 
+  hero: {
+    title: 'Defendemos tus derechos y maximizamos tu indemnización',
+    subtitle: 'Asesoramiento legal y representación integral para trabajadores y accidentados. Reclamos estratégicos con respaldo jurídico.',
+    buttonText: 'Agendar Asesoría Online',
+    images: {
+      desktop: '/assets-t3/hero-desktop.webp',
+      tablet: '/assets-t3/hero-tablet.webp',
+      mobile: '/assets-t3/hero-mobile.webp'
+    }
   },
-  
+
   // EQUIPO T3 (Usamos la sección About)
-  about: { 
-    title: 'Sobre Nosotros', 
-    subtitle: '', 
-    description: 'En nuestro despacho, entendemos que cada accidente vial y laboral impacta directamente en el bienestar y la estabilidad de tu familia. Por eso, contamos con más de 15 años de trayectoria en el mercado brindando acompañamiento integral a víctimas, trabajadores y personas damnificadas. Nuestro enfoque trasciende la simple presentación de escritos o la redacción de telegramas; nos posicionamos como verdaderos aliados estratégicos de nuestros clientes.\n\nTrabajamos bajo una estricta filosofía basada en la resolución de conflictos, la atención personalizada y la actualización constante frente a los continuos cambios jurisprudenciales.', 
-    images: { desktop: '/assets-t3/estudio-equipo.webp', tablet: '/assets-t3/estudio-equipo.webp', mobile: '/assets-t3/estudio-equipo.webp' } 
+  about: {
+    title: 'Sobre Nosotros',
+    subtitle: '',
+    description: 'En nuestro despacho, entendemos que cada accidente vial y laboral impacta directamente en el bienestar y la estabilidad de tu familia. Por eso, contamos con más de 15 años de trayectoria en el mercado brindando acompañamiento integral a víctimas, trabajadores y personas damnificadas. Nuestro enfoque trasciende la simple presentación de escritos o la redacción de telegramas; nos posicionamos como verdaderos aliados estratégicos de nuestros clientes.\n\nTrabajamos bajo una estricta filosofía basada en la resolución de conflictos, la atención personalizada y la actualización constante frente a los continuos cambios jurisprudenciales.',
+    images: { desktop: '/assets-t3/estudio-equipo.webp', tablet: '/assets-t3/estudio-equipo.webp', mobile: '/assets-t3/estudio-equipo.webp' }
   },
-  
+
   // LISTA DE EQUIPO T3 (Usamos la sección Stats)
-  stats: { 
-    title: '', 
+  stats: {
+    title: '',
     items: [
       { value: '', label: 'Abogados matriculados y en constante capacitación' },
       { value: '', label: 'Atención personalizada y respuestas ágiles' },
       { value: '', label: 'Transparencia y honestidad de gestión absoluta' },
       { value: '', label: 'Visión integral estratégica del reclamo' }
-    ] 
+    ]
   },
 
   // SERVICIOS T3 (Usamos la sección Menu)
-  menu: { 
-    title: 'Nuestras Especialidades', 
+  menu: {
+    title: 'Nuestras Especialidades',
     // Usamos el primer elemento de categories para pasar el subtítulo de la sección
-    categories: ['Soluciones integrales para la tranquilidad económica y legal de tu familia.'], 
+    categories: ['Soluciones integrales para la tranquilidad económica y legal de tu familia.'],
     items: [
       { id: '1', title: 'Accidentes Viales', description: 'Gestión de siniestros, peritajes y reclamos a aseguradoras para obtener tu máxima compensación.', price: '', category: '', imagePath: '/assets-t3/icon-contable.svg' },
       { id: '2', title: 'Reclamos contra ART', description: 'Gestión de altas, comisiones médicas y asesoramiento legal continuo para tu salud.', price: '', category: '', imagePath: '/assets-t3/icon-sueldos.svg' },
@@ -59,7 +59,7 @@ export const configT3: ClientData | any = {
       { id: '4', title: 'Incapacidades', description: 'Juntas, reevaluaciones y control mensual de expedientes para trabajadores damnificados.', price: '', category: '', imagePath: '/assets-t3/icon-monotributo.svg' },
       { id: '5', title: 'Enfermedad Laboral', description: 'Análisis de historiales y estrategias legales para reconocer la carga física de tu trabajo.', price: '', category: '', imagePath: '/assets-t3/icon-fiscal.svg' },
       { id: '6', title: 'Acuerdos y Juicios', description: 'Conciliaciones, mediaciones y representación integral ante tribunales laborales y SRT.', price: '', category: '', imagePath: '/assets-t3/icon-tramites.svg' }
-    ] 
+    ]
   },
 
   // === SECCIÓN: FAQ (Preguntas Frecuentes) ===
@@ -88,16 +88,16 @@ export const configT3: ClientData | any = {
     description: 'Dejá tus pericias y tus reclamos en manos de expertos. Contactanos hoy para una asesoría inicial sin cargo.',
     buttonText: 'Agendar una consulta',
     buttonType: 'whatsapp',
-    buttonUrl: '' 
+    buttonUrl: ''
   },
 
   events: { title: '', description: '', buttonText: '' },
   testimonials: { title: '', items: [] },
-  location: { 
-    title: 'Nuestro Estudio.\nVisitanos', 
-    description: 'Tenemos oficinas en CABA. Vení a tomar un café con nosotros y analicemos el estado de tu carpeta cara a cara, con estricta y total confidencialidad.', 
-    buttonText: 'Agendar Reunión Presencial', 
-    mapEmbedUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3284.016713276848!2d-58.38375908477038!3d-34.60373888045942!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4aa9f0a6da5edb%3A0x11be2277a064115b!2sObelisco!5e0!3m2!1ses-419!2sar!4v1680000000000!5m2!1ses-419!2sar' 
+  location: {
+    title: 'Nuestro Estudio.\nVisitanos',
+    description: 'Tenemos oficinas en CABA. Vení a tomar un café con nosotros y analicemos el estado de tu carpeta cara a cara, con estricta y total confidencialidad.',
+    buttonText: 'Agendar Reunión Presencial',
+    mapEmbedUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3284.016713276848!2d-58.38375908477038!3d-34.60373888045942!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4aa9f0a6da5edb%3A0x11be2277a064115b!2sObelisco!5e0!3m2!1ses-419!2sar!4v1680000000000!5m2!1ses-419!2sar'
   },
   contact: { whatsapp: '5491100000000', instagram: '', facebook: '' }
 };
